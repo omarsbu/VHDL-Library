@@ -240,7 +240,9 @@ begin
            reset_0 => reset);    
 
 	-- Update output signals
-    sine_out <= s7_dds_out (2*out_WIDTH - 1 downto out_WIDTH);
-    cosine_out <= s7_dds_out (out_WIDTH - 1 downto 0);
+    	phase_out <= s5_phase_out;
+    	phase_count <= s6_phase_cnt;
+    	sine_out <= s7_dds_out (2*out_WIDTH - 1 downto out_WIDTH);
+    	cosine_out <= s7_dds_out (out_WIDTH - 1 downto 0);
 	M_AXIS_tvalid <= '1';
 end STRUCTURE;
