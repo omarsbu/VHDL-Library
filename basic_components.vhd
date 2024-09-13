@@ -25,16 +25,6 @@ begin
   data_out <= data_in(to_integer(unsigned(select_line)));
 end architecture;
 
-
-
-
-
-
-
-
-
-
-
 library ieee;
 use ieee.std_logic_1164.all;  
 use ieee.numeric_std.all;
@@ -52,5 +42,7 @@ end entity;
 
 architecture RTL of MUX is
 begin
-  data_out <= data_in(to_integer(unsigned(select_line)));
+  gen_label: for i in 0 to NUM generate
+    data_out(i) <= data_in when to_integer(unsigned(select_line)) = i else 'Z';
+  end generate gen_label;
 end architecture;
